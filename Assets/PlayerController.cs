@@ -26,23 +26,29 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 input = moveAction.ReadValue<Vector2>();
+
         Vector2 lookInput = lookAction.ReadValue<Vector2>();
+
         Debug.Log(input);
 
-        if (controller.isGrounded = true && verticalVelocity < 0f){
+        if (controller.isGrounded && verticalVelocity < 0f){
             verticalVelocity = -2f;
-            Vector3 velocity = moveDirection * moveSpeed;
-            velocity.y = Move;
-            controller.Move(velocity * Time.deltaTime);
         }
 
         verticalVelocity += gravity * Time.deltaTime;
 
         Vector3 moveDirection = transform.forward * input.y + transform.right * input.x;
+
         transform.Rotate(0f, lookSensitivity * lookInput.x, 0f);
+
         cameraPitch -= lookSensitivity * lookInput.y;
+
         cameraPitch = Mathf.Clamp(cameraPitch, -80f, 80f);
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+        Vector3 velocity = moveDirection * moveSpeed;
+            velocity.y = 1f;
+            controller.Move(velocity * Time.deltaTime);
+
         cameraTransform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
     }
 }
