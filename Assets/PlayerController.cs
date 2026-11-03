@@ -6,17 +6,21 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 3f;
     public float lookSensitivity = 0.1f;
     public Transform cameraTransform;
+    public float gravity = -9.81f;
 
     private CharacterController controller;
     private InputAction moveAction;
     private InputAction lookAction;
     private float cameraPitch = 0f;
+    private float verticalVelocity = 0f;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         moveAction = InputSystem.actions.FindAction("Move");
         lookAction = InputSystem.actions.FindAction("Look");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -24,6 +28,15 @@ public class PlayerController : MonoBehaviour
         Vector2 input = moveAction.ReadValue<Vector2>();
         Vector2 lookInput = lookAction.ReadValue<Vector2>();
         Debug.Log(input);
+
+        if (controller.isGrounded = true && verticalVelocity < 0f){
+            verticalVelocity = -2f;
+            Vector3 velocity = moveDirection * moveSpeed;
+            velocity.y = Move;
+            controller.Move(velocity * Time.deltaTime);
+        }
+
+        verticalVelocity += gravity * Time.deltaTime;
 
         Vector3 moveDirection = transform.forward * input.y + transform.right * input.x;
         transform.Rotate(0f, lookSensitivity * lookInput.x, 0f);
