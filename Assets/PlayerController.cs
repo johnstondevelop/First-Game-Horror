@@ -5,10 +5,12 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 3f;
     public float lookSensitivity = 0.1f;
+    public Transform cameraTransform;
 
     private CharacterController controller;
     private InputAction moveAction;
     private InputAction lookAction;
+    private float cameraPitch = 0f;
 
     void Start()
     {
@@ -25,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveDirection = transform.forward * input.y + transform.right * input.x;
         transform.Rotate(0f, lookSensitivity * lookInput.x, 0f);
+        cameraPitch -= lookSensitivity * lookAction;
+        cameraPitch = Mathf.Clamp(health, -80f, 80f);
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+        cameraTransform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
     }
 }
