@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 input = moveAction.ReadValue<Vector2>();
         Vector2 lookInput = lookAction.ReadValue<Vector2>();
-        Debug.Log(Cursor.lockState);
 
         if (controller.isGrounded && verticalVelocity < 0f){
             verticalVelocity = -2f;

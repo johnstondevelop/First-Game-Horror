@@ -568,13 +568,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92d30818eb380945a074bdb508e78c1, type: 3}
+  m_Script: {fileID: 11500000, guid: eed302d9e5581fb4691565987f1d7947, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 3
-  lookSensitivity: 0.1
-  cameraTransform: {fileID: 330585546}
-  gravity: -9.81
+  m_EditorClassIdentifier: Assembly-CSharp::CameraSway
+  swaySpeed: 0.5
+  swayAmount: 1.5
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
