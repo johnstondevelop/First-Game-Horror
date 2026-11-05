@@ -28,8 +28,6 @@ noiseTime += currentSwaySpeed * Time.deltaTime;
 
         float noiseX = Mathf.PerlinNoise(noiseTime, 0f);
         float noiseY = Mathf.PerlinNoise(noiseTime, 10f);
-        float noiseX = Mathf.PerlinNoise(Time.time * swaySpeed, 0f);
-        float noiseY = Mathf.PerlinNoise(Time.time * swaySpeed, 10f); // TODO: Create noiseY the same way, using 10f instead of 0f
         float swayX = (noiseX - 0.5f) * 2f;
         float swayY = (noiseY - 0.5f) * 2f; // TODO: Convert noiseX to a value from -1 to 1
         transform.localRotation = Quaternion.Euler(
