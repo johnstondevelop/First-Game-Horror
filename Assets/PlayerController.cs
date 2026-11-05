@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
             speed = sprintSpeed;
         }
         currentSpeed = speed * input.magnitude;
-        Vector3 velocity = moveDirection * moveSpeed;
+        Vector3 velocity = moveDirection * speed;
         velocity.y = verticalVelocity;
         controller.Move(velocity * Time.deltaTime);
 

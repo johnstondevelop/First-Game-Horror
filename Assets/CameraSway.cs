@@ -22,14 +22,19 @@ public class CameraSway : MonoBehaviour
     {
         float targetBlend = player.currentSpeed / player.sprintSpeed;
         moveBlend = Mathf.MoveTowards(moveBlend, targetBlend, swayBlendSpeed * Time.deltaTime);
-        float = currentSwaySpeed = Mathf.Lerp(sprintSpeed, swaySpeed, moveBlend);
+        float currentSwaySpeed = Mathf.Lerp(swaySpeed, sprintSwaySpeed, moveBlend);
+float currentSwayAmount = Mathf.Lerp(swayAmount, sprintSwayAmount, moveBlend);
+noiseTime += currentSwaySpeed * Time.deltaTime;
+
+        float noiseX = Mathf.PerlinNoise(noiseTime, 0f);
+        float noiseY = Mathf.PerlinNoise(noiseTime, 10f);
         float noiseX = Mathf.PerlinNoise(Time.time * swaySpeed, 0f);
         float noiseY = Mathf.PerlinNoise(Time.time * swaySpeed, 10f); // TODO: Create noiseY the same way, using 10f instead of 0f
         float swayX = (noiseX - 0.5f) * 2f;
         float swayY = (noiseY - 0.5f) * 2f; // TODO: Convert noiseX to a value from -1 to 1
         transform.localRotation = Quaternion.Euler(
-            swayX * swayAmount,
-            swayY * swayAmount,
+            swayX * currentSwayAmount,
+            swayY * currentSwayAmount,
             0f
         ); // TODO: Multiply both by swayAmount
 
