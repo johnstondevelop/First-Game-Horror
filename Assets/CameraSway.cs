@@ -4,6 +4,14 @@ public class CameraSway : MonoBehaviour
 {
     public float swaySpeed = 0.5f;
     public float swayAmount = 1.5f;
+    public PlayerController player;
+    public float sprintSwaySpeed = 2f;
+    public float sprintSwayAmount = 3f;
+    public float swayBlendSpeed = 3f;
+
+
+    private float moveBlend = 0f;
+    private float noiseTime = 0f;
     void Start()
     {
         
@@ -12,6 +20,9 @@ public class CameraSway : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float targetBlend = player.currentSpeed / player.sprintSpeed;
+        moveBlend = Mathf.MoveTowards(moveBlend, targetBlend, swayBlendSpeed * Time.deltaTime);
+        float = currentSwaySpeed = Mathf.Lerp(sprintSpeed, swaySpeed, moveBlend);
         float noiseX = Mathf.PerlinNoise(Time.time * swaySpeed, 0f);
         float noiseY = Mathf.PerlinNoise(Time.time * swaySpeed, 10f); // TODO: Create noiseY the same way, using 10f instead of 0f
         float swayX = (noiseX - 0.5f) * 2f;

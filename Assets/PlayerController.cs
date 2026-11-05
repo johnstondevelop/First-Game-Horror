@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private InputAction moveAction;
     private InputAction lookAction;
+    private InputAction sprintAction;
     private float cameraPitch = 0f;
     private float verticalVelocity = 0f;
-    private float InputAction sprintAction;
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         cameraPitch -= lookSensitivity * lookInput.y;
         cameraPitch = Mathf.Clamp(cameraPitch, -80f, 80f);
         float speed = moveSpeed;
-        if (sprintAction.isPressed()){
+        if (sprintAction.IsPressed()){
             speed = sprintSpeed;
         }
         currentSpeed = speed * input.magnitude;
