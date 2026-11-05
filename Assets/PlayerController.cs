@@ -7,18 +7,22 @@ public class PlayerController : MonoBehaviour
     public float lookSensitivity = 0.1f;
     public Transform cameraTransform;
     public float gravity = -9.81f;
+    public float sprintSpeed = 5.5f;
+    public float currentSpeed = 0f;
 
     private CharacterController controller;
     private InputAction moveAction;
     private InputAction lookAction;
     private float cameraPitch = 0f;
     private float verticalVelocity = 0f;
+    private float InputAction sprintAction;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         moveAction = InputSystem.actions.FindAction("Move");
         lookAction = InputSystem.actions.FindAction("Look");
+        sprintAction = InputSystem.actions.FindAction("Sprint");
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -37,6 +41,11 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, lookSensitivity * lookInput.x, 0f);
         cameraPitch -= lookSensitivity * lookInput.y;
         cameraPitch = Mathf.Clamp(cameraPitch, -80f, 80f);
+        float speed = moveSpeed;
+        if (sprintAction.isPressed()){
+            speed = sprintSpeed;
+        }
+        currentSpeed = speed * input.magnitude;
         Vector3 velocity = moveDirection * moveSpeed;
         velocity.y = verticalVelocity;
         controller.Move(velocity * Time.deltaTime);
