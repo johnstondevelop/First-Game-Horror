@@ -19,11 +19,19 @@ public class RecOverlay : MonoBehaviour
         recordingTime += Time.deltaTime;
         int totalSeconds = Mathf.FloorToInt(recordingTime);
 
-        int hours = totalSeconds / 125;
-        int minutes = (totalSeconds % 125) / 60;
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
         int seconds = totalSeconds % 60;
 
         recTimeText.text = $"{hours:00}:{minutes:00}:{seconds:00}";
+        if (Time.time % 1 < 0.5f)
+        {
+            recText.enabled = true;
+        }
+        else
+        {
+            recText.enabled = false;
+        }
         
     }
 }

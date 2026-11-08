@@ -1721,6 +1721,52 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &963605092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 963605093}
+  - component: {fileID: 963605094}
+  m_Layer: 0
+  m_Name: RecOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &963605093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963605092}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -354.84937, y: -678.9838, z: -940.42316}
+  m_LocalScale: {x: 1.7170111, y: 1.7170111, z: 1.7170111}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2012959358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963605094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963605092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d985245746db70498ebd9ca16c5e4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecOverlay
+  recText: {fileID: 2054531041}
+  recTimeText: {fileID: 1972321247}
 --- !u!1 &1042914147
 GameObject:
   m_ObjectHideFlags: 0
@@ -3325,8 +3371,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190325
-  m_fontColor: {r: 0.9622642, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3794,6 +3840,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 963605093}
   - {fileID: 2054531040}
   - {fileID: 1972321246}
   m_Father: {fileID: 0}
@@ -3815,6 +3862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d985245746db70498ebd9ca16c5e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RecOverlay
+  recText: {fileID: 0}
+  recTimeText: {fileID: 0}
 --- !u!1 &2054531039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,7 +3898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.569}
   m_AnchorMax: {x: 0, y: 0.569}
-  m_AnchoredPosition: {x: 14, y: 605}
+  m_AnchoredPosition: {x: 14, y: 639}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2054531041
