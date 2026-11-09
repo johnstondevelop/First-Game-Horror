@@ -1842,6 +1842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecOverlay
   recText: {fileID: 2054531041}
   recTimeText: {fileID: 1972321247}
+  recDot: {fileID: 325279491}
 --- !u!1 &1042914147
 GameObject:
   m_ObjectHideFlags: 0

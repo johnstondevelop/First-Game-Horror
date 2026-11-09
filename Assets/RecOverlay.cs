@@ -6,7 +6,7 @@ public class RecOverlay : MonoBehaviour
 {
     public TMP_Text recText;
     public TMP_Text recTimeText;
-    public image recDot;
+    public Image recDot;
 
     private float recordingTime = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,10 +29,12 @@ public class RecOverlay : MonoBehaviour
         if (Time.time % 1 < 0.5f)
         {
             recText.enabled = true;
+            recDot.enabled = true;
         }
         else
         {
             recText.enabled = false;
+            recDot.enabled = false;
         }
         
     }
