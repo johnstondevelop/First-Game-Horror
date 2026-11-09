@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class RecOverlay : MonoBehaviour
 {
     public TMP_Text recText;
     public TMP_Text recTimeText;
+    public image recDot;
 
     private float recordingTime = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
