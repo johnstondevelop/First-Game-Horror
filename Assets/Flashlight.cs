@@ -23,20 +23,24 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (toggleAction.WasPressedThisFrame())
+        if (isOn)
         {
-            isOn = !isOn;
+            currentBattery -= drainPerSecond * Time.deltaTime;
+            currentBattery = Mathf.Max(currentBattery, 0f);
         }
-        maxBattery -= Time.deltaTime * drainPerSecond;
-        if (isOn && currentBattery > 0f)
+        beam.enabled = isOn && currentBattery > 0f;
+
+        float batteryPercent = currentBattery / maxBattery;
+
+        if(batteryPercent >= lowBatteryPoint)
         {
-            currentBattery -= Time.deltaTime * drainPerSecond;
-            beam.intensity = Mathf.Lerp(0f, maxIntensity, currentBattery / maxBattery);
+            beam.intensity = maxIntensity;
+
         }
         else
         {
-            beam.intensity = 0f;
+            beam.intensity = maxIntensity * (batteryPercent / lowBatteryPoint);
         }
-        
+
     }
 }
