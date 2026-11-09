@@ -192,8 +192,8 @@ Light:
   serializedVersion: 13
   m_Type: 0
   m_Color: {r: 0.8490566, g: 0.8111145, b: 0.68485224, a: 1}
-  m_Intensity: 5
-  m_Range: 20
+  m_Intensity: 10
+  m_Range: 30
   m_SpotAngle: 55
   m_InnerSpotAngle: 30
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -1563,11 +1563,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43c80c2ff6f1e5468b90d497c483cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VHSGlitch
-  minTimeBetween: 4
-  maxTimeBetween: 10
-  glitchDuration: 0.15
-  glitchAberration: 0.1
-  glitchDistortion: -0.5
+  minTimeBetween: 15
+  maxTimeBetween: 40
+  glitchDuration: 0.1
+  glitchAberration: 0.4
+  glitchDistortion: -0.25
 --- !u!1 &864750847
 GameObject:
   m_ObjectHideFlags: 0
