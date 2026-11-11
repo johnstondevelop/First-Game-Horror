@@ -1335,6 +1335,7 @@ GameObject:
   - component: {fileID: 441427646}
   - component: {fileID: 441427645}
   - component: {fileID: 441427648}
+  - component: {fileID: 441427649}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Untagged
@@ -1350,12 +1351,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441427643}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.769, z: 5.033}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.15, z: 8}
   m_LocalScale: {x: 0.15, y: 0.3, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 864750849}
+  m_Father: {fileID: 1367078497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &441427645
 BoxCollider:
@@ -1456,6 +1457,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: -0.0000038146973}
+--- !u!114 &441427649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441427643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c0aaa7fc5ee964a888b239c90dad73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Battery
+  chargeAmount: 50
 --- !u!1 &460534999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,7 +1930,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1277046192}
-  - {fileID: 441427644}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &864750850
@@ -2283,6 +2296,7 @@ Transform:
   - {fileID: 1560128775}
   - {fileID: 217457362}
   - {fileID: 2060035719}
+  - {fileID: 441427644}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560128774

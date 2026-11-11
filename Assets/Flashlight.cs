@@ -27,7 +27,7 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (toggleAction.WasCompletedThisDynamicUpdate())
+        if (toggleAction.WasPressedThisFrame())
         {
             isOn = !isOn;
         }
