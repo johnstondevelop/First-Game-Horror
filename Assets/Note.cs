@@ -34,6 +34,8 @@ public class Note : MonoBehaviour
         {
             playerInRange = false;
             promptText.SetActive(false);
+            notePanel.SetActive(false);
+            isReading = false;
         }
     }
 
@@ -42,7 +44,7 @@ public class Note : MonoBehaviour
     {
         if (playerInRange && InteractAction.WasPressedThisFrame())
         {
-            isReading = true;
+            isReading = !isReading;
 
 if (isReading)
 {
