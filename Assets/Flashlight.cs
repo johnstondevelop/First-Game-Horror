@@ -50,7 +50,7 @@ public class Flashlight : MonoBehaviour
             beam.intensity = maxIntensity * (batteryPercent / lowBatteryPoint);
         }
         batteryFill.fillAmount = batteryPercent;
-        batteryText.text = Mathf.CeilToInt(currentBattery) + "%";
+        batteryText.text = Mathf.CeilToInt(batteryPercent * 100f) + "%";
 
         batteryFill.color = Color.Lerp(Color.red, Color.white, batteryPercent);
 

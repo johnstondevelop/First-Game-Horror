@@ -42,10 +42,36 @@ public class Battery : MonoBehaviour
                 Destroy(gameObject);
             }
         } 
-        promptText.SetActive(true);
-        if (!playerInRange)
+        
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
+            playerInRange = true;
+            flashlight = other.GetComponentInChildren<Flashlight>();
+            promptText.SetActive(true);
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            flashlight = null;
             promptText.SetActive(false);
+        }
+    }
+    void Update()
+    {
+        if (playerInRange && InteractAction.WasPressedThisFrame())
+        {
+            if (flashlight != null)
+            {
+                flashlight.AddBattery(chargeAmount);
+                promptText.SetActive(false);
+                Destroy(gameObject);
+            }
         }
     }
 }
