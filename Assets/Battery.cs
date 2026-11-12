@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class Battery : MonoBehaviour
 {
     public float chargeAmount = 50f;
+    public GameObject promptText;
 
     private InputAction InteractAction;
     private Flashlight flashlight;
@@ -41,5 +42,10 @@ public class Battery : MonoBehaviour
                 Destroy(gameObject);
             }
         } 
+        promptText.SetActive(true);
+        if (!playerInRange)
+        {
+            promptText.SetActive(false);
+        }
     }
 }
