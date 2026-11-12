@@ -13,6 +13,7 @@ public class Battery : MonoBehaviour
     void Start()
     {
         InteractAction = InputSystem.actions.FindAction("Interact");
+        promptText.SetActive(false);
     }
     void OnTriggerEnter(Collider other)
     {
