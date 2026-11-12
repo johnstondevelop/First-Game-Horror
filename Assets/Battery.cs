@@ -20,6 +20,7 @@ public class Battery : MonoBehaviour
         {
             playerInRange = true;
             flashlight = other.GetComponentInChildren<Flashlight>();
+            promptText.SetActive(true);
         }
     }
     void OnTriggerExit(Collider other)
@@ -28,6 +29,7 @@ public class Battery : MonoBehaviour
         {
             playerInRange = false;
             flashlight = null;
+            promptText.SetActive(false);
         }
     }
 
