@@ -43,8 +43,18 @@ public class Note : MonoBehaviour
         if (playerInRange && InteractAction.WasPressedThisFrame())
         {
             isReading = true;
-            notePanel.SetActive(true);
-            noteText.text = noteContent;
+
+if (isReading)
+{
+    noteText.text = noteContent;
+    notePanel.SetActive(true);
+    promptText.SetActive(false);
+}
+else
+{
+    notePanel.SetActive(false);
+    promptText.SetActive(true);
+}
         }
     }
 }
