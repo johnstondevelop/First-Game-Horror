@@ -34,37 +34,7 @@ public class Battery : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (playerInRange && InteractAction.WasPerformedThisFrame())
-        {
-            if (flashlight != null)
-            {
-                flashlight.AddBattery(chargeAmount);
-                Destroy(gameObject);
-            }
-        } 
-        
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-            flashlight = other.GetComponentInChildren<Flashlight>();
-            promptText.SetActive(true);
-        }
-    }
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-            flashlight = null;
-            promptText.SetActive(false);
-        }
-    }
-    void Update()
-    {
-        if (playerInRange && InteractAction.WasPressedThisFrame())
+       if (playerInRange && InteractAction.WasPressedThisFrame())
         {
             if (flashlight != null)
             {
@@ -72,6 +42,8 @@ public class Battery : MonoBehaviour
                 promptText.SetActive(false);
                 Destroy(gameObject);
             }
-        }
+        } 
+        
     }
+    
 }
